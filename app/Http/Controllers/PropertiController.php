@@ -69,10 +69,6 @@ class PropertiController extends Controller
         $properti->status = $request->status;
         $properti->keterangan_rumah = $request->keterangan_rumah;
 
-
-        $properti->save();
-        return redirect()->route('properti_data')->with('success','Data Berhasil di tambahkan');
-
         if($request->hasFile('foto')){
             $file = $request->file('foto');
             $fileName = time() . $request->file('foto')->getClientOriginalName();
@@ -80,6 +76,9 @@ class PropertiController extends Controller
             $file->move($filePath,$fileName);
             $properti->foto = $fileName;
         }
+        $properti->save();
+        return redirect()->route('properti_data')->with('success','Data Berhasil di tambahkan');
+
     }
 
     /**
