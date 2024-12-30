@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Properti;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
     public function index(){
-        return view('index');
+        $properti = Properti::get()->all();
+        return view('index',compact('properti'));
     }
     public function properti(){
-        return view('properti');
+        $properti = Properti::where('status','Tersedia')->get();
+        return view('properti',compact('properti'));
     }
     public function media(){
         return view('media');

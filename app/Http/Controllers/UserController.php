@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,7 +12,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.dashboard');
+        $user = User::get()->all();
+        return view('user.index',[
+            'user' => $user
+        ]);
+    }
+    public function properti(){
+        return view('user.properti');
+    }
+    public function media(){
+        return view('user.media');
+    }
+    public function kontak(){
+        return view('user.kontak');
     }
 
     /**

@@ -1,0 +1,46 @@
+[
+    {
+        "id": "1",
+        "nama_fasilitass":"2 Kamar Tidur"
+    },
+    {
+        "id": "2",
+        "nama_fasilitass":"1 Kamar Mandi"
+    },
+    {
+        "id": "3",
+        "nama_fasilitass":"Dapur"
+    },
+    {
+        "id": "4",
+        "nama_fasilitass":"Ruang Tamu"
+    },
+    {
+        "id": "5",
+        "nama_fasilitass":"Taman Depan"
+    },
+    {
+        "id": "6",
+        "nama_fasilitass":"3 Kamar Tidur"
+    },
+    {
+        "id": "7",
+        "nama_fasilitass":"2 Kamar Mandi"
+    },
+    {
+        "id": "8",
+        "nama_fasilitass":"Ruang Keluarga"
+    },
+    {
+        "id": "9",
+        "nama_fasilitass":"Garasi"
+    },
+    {
+        "id": "10",
+        "nama_fasilitass":"Ruang Makan"
+    },
+    {
+        "id": "11",
+        "nama_fasilitass":"Taman Belakang"
+    }
+]
