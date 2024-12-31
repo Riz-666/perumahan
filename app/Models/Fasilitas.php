@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fasilitas extends Model
 {
+    protected $primaryKey = 'id_fasilitas'; 
     protected $casts = [
         'fasilitas' => 'array'
     ];

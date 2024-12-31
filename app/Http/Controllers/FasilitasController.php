@@ -24,7 +24,9 @@ class FasilitasController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.fasilitas.tambah',[
+            'judul' => 'Tambah Fasilitas'
+        ]);
     }
 
     /**
@@ -32,7 +34,13 @@ class FasilitasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_fasilitas' => 'required'
+        ]);
+        $fasilitas = new Fasilitas();
+        $fasilitas->nama_fasilitas = $request->nama_fasilitas;
+        $fasilitas->save();
+        return redirect()->route('fasilitas_data')->with('success','Data Berhasil di tambahkan');
     }
 
     /**
@@ -64,6 +72,8 @@ class FasilitasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $fasilitas = Fasilitas::findOrFail($id);
+        $fasilitas->delete();
+        return redirect()->route('fasilitas_data')->with('success');
     }
 }

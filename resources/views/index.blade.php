@@ -96,16 +96,62 @@
             </div>
         </div>
     </div>
+    <br>
     <center>
         <div class="row home-reco">
-            @foreach ($properti as $rumah)
+            @foreach ($murah as $rumah)
             <div class="col-sm">
                 <div class="card item-reco">
                     <div class="card-body">
-                        <img src="{{ $rumah->foto }}" width="100%"
-                            height="50%">
+                        @if ($rumah->foto)
+                            <img src="{{ asset('storage/properti-img/' . $rumah->foto) }}" class="foto-preview" >
+                        @else
+                            <img src="{{ asset('storage/properti-img/img-default.jpg') }}" class="foto-preview">
+                        @endif
                         <h5 class="card-title">{{ $rumah->harga }}</h5>
-                        <p class="card-text">{{ $rumah->keterangan_rumah }}</p>
+                        <p class="card-text">{!! $rumah->keterangan_rumah !!}</p>
+                        <p class="card-status">{{ $rumah->status }}</p>
+                    </div>
+                </div>
+            </div>
+                @endforeach
+        </div>
+    </center>
+    <br>
+    <center>
+        <div class="row home-reco">
+            @foreach ($menengah as $rumah)
+            <div class="col-sm">
+                <div class="card item-reco">
+                    <div class="card-body">
+                        @if ($rumah->foto)
+                            <img src="{{ asset('storage/properti-img/' . $rumah->foto) }}" class="foto-preview" >
+                        @else
+                            <img src="{{ asset('storage/properti-img/img-default.jpg') }}" class="foto-preview">
+                        @endif
+                        <h5 class="card-title">{{ $rumah->harga }}</h5>
+                        <p class="card-text">{!! $rumah->keterangan_rumah !!}</p>
+                        <p class="card-status">{{ $rumah->status }}</p>
+                    </div>
+                </div>
+            </div>
+                @endforeach
+        </div>
+    </center>
+    <br>
+    <center>
+        <div class="row home-reco">
+            @foreach ($atas as $rumah)
+            <div class="col-sm">
+                <div class="card item-reco">
+                    <div class="card-body">
+                        @if ($rumah->foto)
+                            <img src="{{ asset('storage/properti-img/' . $rumah->foto) }}" class="foto-preview" >
+                        @else
+                            <img src="{{ asset('storage/properti-img/img-default.jpg') }}" class="foto-preview">
+                        @endif
+                        <h5 class="card-title">{{ $rumah->harga }}</h5>
+                        <p class="card-text">{!! $rumah->keterangan_rumah !!}</p>
                         <p class="card-status">{{ $rumah->status }}</p>
                     </div>
                 </div>
@@ -114,5 +160,5 @@
         </div>
     </center>
 </div>
-
+<br>
     @endsection

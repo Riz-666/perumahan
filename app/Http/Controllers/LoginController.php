@@ -26,14 +26,40 @@ class LoginController extends Controller
 
         if(Auth::attempt($logininfo)){
             if(Auth::user()->role == 1){
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('admin.dashboard')->with('status', Auth::user()->nama);
             }elseif (Auth::user()->role == 2) {
                 return redirect()->route('user.dashboard');
             }
         }else{
             return redirect()->route('index.login')->withErrors('Data Yang Dimasukan Tidak Sesuai')->withInput();
         }
+}
+public function register(){
+    return view('register');
+}
+public function authRegister(Request $request){
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required'
+    ],[
+        'email.required' => 'Email Wajib Di Isi',
+        'password.required' => 'Password Wajib Di Isi'
+    ]);
 
+    $logininfo = [
+        'email' => $request->email,
+        'password' => $request->password
+    ];
+
+    if(Auth::attempt($logininfo)){
+        if(Auth::user()->role == 1){
+            return redirect()->route('admin.dashboard')->with('status', Auth::user()->nama);
+        }elseif (Auth::user()->role == 2) {
+            return redirect()->route('user.dashboard');
+        }
+    }else{
+        return redirect()->route('index.login')->withErrors('Data Yang Dimasukan Tidak Sesuai')->withInput();
+    }
 }
     public function logout(){
         Auth::logout();

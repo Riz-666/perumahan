@@ -24,7 +24,7 @@ height: 39px;
     position: sticky;
     top: 0;
     white-space: normal;
-    text-align: center;
+    width: 100%;
 }
 .table .scroll p, .table .scroll span {
     display: block;
@@ -32,5 +32,9 @@ height: 39px;
     max-width: 100px;
 }
 
-
-
+ #fasilitasTable, #fasilitasTable th,#fasilitasTable td{
+    text-align: center;
+}
+.card-fasilitas{
+    width: 50%;
+}

@@ -137,7 +137,10 @@ class PropertiController extends Controller
         $fasilitas = $input['fasilitas'];
         $properti->fasilitas = implode(' | ',$fasilitas );
         $properti->status = $request->status;
-        $properti->keterangan_rumah = $request->keterangan_rumah;
+
+        $data = $request->input('keterangan_rumah');
+        $data1 = preg_replace('/<\/?(p|u|em|strong)[^>]*>/', '', $data);
+        $properti->keterangan_rumah = $data1;
 
         if($request->hasFile('foto')){
             $dir = public_path('storage/properti-img/');

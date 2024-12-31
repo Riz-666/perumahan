@@ -34,6 +34,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('dist/select2-bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/select2-bootstrap4.css') }}">
+    {{-- CkEditor --}}
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css">
 </head>
 
 <body>
@@ -76,8 +78,10 @@
                     </a>
                     <div class="collapse" id="charts">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="{{ Route('properti_data') }}">Rumah</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ Route('fasilitas_data') }}">Fasilitas</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ Route('properti_data') }}">Rumah</a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link"
+                                    href="{{ Route('fasilitas_data') }}">Fasilitas</a></li>
                         </ul>
                     </div>
                 </li>
@@ -160,7 +164,8 @@
     {{-- Select2 --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <!-- CKEditor -->
-    <script src="{{ asset('https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js') }}"></script>
+    <script src="https://cdn.ckeditor.com/4.4.1/standard/ckeditor.js"></script>
+
     @if (session('success'))
         <script>
             Swal.fire({
@@ -196,13 +201,30 @@
             });
         });
     </script>
+    @if(session('status'))
+    <script>
+        Swal.fire({
+            title: 'Selamat Datang',
+            text: '{{ session('status') }}-san',
+            imageUrl: 'https://i.pinimg.com/736x/9e/22/90/9e2290c9dce085c2f9b1f1dd013f0732.jpg',
+            imageWidth: 400,
+            imageHeight: 400,
+        });
+    </script>
+    @endif
+    {{-- <script>
+        ClassicEditor
+            .create(document.querySelector('#ckeditor'))
+            .catch(error => {
+                console.error(error);
+            });
+     </script> --}}
 
-<script>
-    ClassicEditor
-    .create(document.querySelector('#ckeditor'))
-    .catch(error => {
-    console.error(error);
-    });
+    <script>
+        CKEDITOR.replace('ckeditor', {
+            allowedContent: true,
+            disallowedContent: 'strong em u p'
+        });
     </script>
 </body>
 

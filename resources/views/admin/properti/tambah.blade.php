@@ -55,7 +55,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="">Keterangan Rumah</label>
-                        <input type="textarea" name="keterangan_rumah" class="form-control" id="ckeditor" placeholder="Masukan Keterangan Rumah">
+                        <textarea name="keterangan_rumah" id="ckeditor" class="form-control"  placeholder="Masukan Keterangan Rumah"></textarea>
                     </div>
                 </div>
                 <br>

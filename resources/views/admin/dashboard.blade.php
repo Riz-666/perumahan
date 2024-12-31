@@ -1,5 +1,8 @@
 @extends('admin.layout.layout')
 @section('content')
+@if(session('success'))
+  <div class="error">{{ session('success') }}<div>
+@endif
 
 <div class="card text-bg-success container" style="width: 90%;">
     <div class="card-body">

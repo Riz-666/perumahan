@@ -1,7 +1,6 @@
     $(document).ready( function () {
     $('#myTable').DataTable({
             responsive:true,
-
             columnDefs: [{
             "defaultContent": "-",
             "targets": "_all",
@@ -38,11 +37,16 @@
             }]
         });
     } );
+    $(document).ready( function () {
+        $('#fasilitasTable').DataTable({
+                responsive:true,
 
-
-// $(function() {
-
-// $('#inpFasilitas').multiselect({
-// includeSelectAllOption: true
-// });
-// });
+                columnDefs: [{
+                "defaultContent": "-",
+                "targets": "_all",
+                "scrollX": "210px",
+                "scrollCollapse": true,
+                "paging": false,
+                }]
+            });
+        } );

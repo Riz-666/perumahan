@@ -1,6 +1,5 @@
 @extends('admin.layout.layout')
 @section('content')
-    <div class="table-responsive">
         <a class="btn btn-primary btn-sm" href="{{ Route('tambah_rumah') }}"><i class="fa-solid fa-user-plus"></i> Tambah
             Data</a>
         <div class="table-responsive">
@@ -29,11 +28,11 @@
                                     </ul>
                                 </td> --}}
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rumah->nomor_rumah }}</td>
-                                <td>{{ $rumah->tipe_rumah }}</td>
-                                <td>{{ $rumah->luas_bangunan }}</td>
-                                <td>{{ $rumah->luas_tanah }}</td>
-                                <td class="scroll"><p>{{ $rumah->harga }}</p></td>
+                                <td class="kolom"><p>{{ $rumah->nomor_rumah }}</p></td>
+                                <td class="kolom"><p>{{ $rumah->tipe_rumah }}</p></td>
+                                <td class="kolom"><p>{{ $rumah->luas_bangunan }}</p></td>
+                                <td class="kolom"><p>{{ $rumah->luas_tanah }}</p></td>
+                                <td class="kolom"><p>{{ $rumah->harga }}</p></td>
                                 @if (!empty($rumah->fasilitas))
                                     <td class="scroll"><p>{{ $rumah->fasilitas }}</p></td>
                                 @else
@@ -49,9 +48,9 @@
                                         <span class="badge badge-warning"> Telah Di Pesan</span>
                                     @endif
                                 </td>
-                                <form action="{{ Route('delete_data_properti', $rumah->id_rumah) }}" method="POST">
-                                    @csrf
                                 <td>
+                                    <form action="{{ Route('delete_data_properti', $rumah->id_rumah) }}" method="POST">
+                                        @csrf
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ Route('edit.properti', $rumah->id_rumah) }}">
                                             <i class="fa-solid fa-eye"></i></a>
@@ -59,7 +58,7 @@
                                             href="{{ Route('edit.properti', $rumah->id_rumah) }}">
                                             <i class="fa-solid fa-pen-to-square"></i></a>
                                         <button type="submit" class="btn btn-danger btn-sm" id="show_confirm"
-                                            data-konf-delete=" "><i class="fa-solid fa-trash"></i></button>
+                                            data-konf-delete=""><i class="fa-solid fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>

@@ -54,8 +54,7 @@
                             <img src="{{ asset('storage/properti-img/' . $rumah->foto) }}" class="foto-preview" width="100%" height="100%">
                             <p></p>
                         @else
-                            <img src="{{ asset('storage/user-img/img-default.jpg') }}" class="foto-preview" width="100%" height="100%">
-                            <p></p>
+                            <img src="{{ asset('storage/properti-img/img-default.jpg') }}" class="foto-preview" width="100%" height="100%">
                         @endif
                     </div>
                 </div>

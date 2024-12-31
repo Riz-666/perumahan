@@ -79,8 +79,11 @@ Route::middleware(['auth'])->group(function(){
 
 //KELOLA FASILITAS
     Route::get('admin/kelola/fasilitas', [FasilitasController::class, 'index'])->name('fasilitas_data')->middleware('userAkses:1');
-
-
+    //Tambah Fasilitas
+    Route::get('admin/kelola/tambah_fasilitas', [FasilitasController::class, 'create'])->name('tambah_fasilitas')->middleware('userAkses:1');
+    Route::post('admin/kelola/proses_tambah_fasilitas', [FasilitasController::class, 'store'])->name('add.fasilitas')->middleware('userAkses:1');
+    //Delete Data Fasilitas
+    Route::post('admin/kelola/delete/fasilitas{id}', [FasilitasController::class, 'destroy'])->name('delete_data_fasilitas')->middleware('userAkses:1');
 
 //PAGE USER
     //user

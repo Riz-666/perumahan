@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Masuk</h5>
                         <div class="mb-3">
-                            @if ($errors->any())
+                            @if ($errors->any()) 
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $item)
