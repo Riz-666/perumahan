@@ -2,6 +2,7 @@
 @section('content')
 <div class="table-responsive">
 <a class="btn btn-primary btn-sm" href="{{ Route('tambah_data') }}"><i class="fa-solid fa-user-plus"></i> Tambah Data</a>
+<a class="btn btn-dark btn-sm" href="{{ Route('form.cetak') }}"><i class="fa-solid fa-print"></i> Cetak Data Admin</a>
 <div class="table-responsive">
 <table id="myTable" class="table table-striped table-bordered" style="width:100%">
 	<thead>

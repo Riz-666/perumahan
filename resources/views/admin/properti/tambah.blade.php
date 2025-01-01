@@ -36,7 +36,7 @@
                     </div>
                     <div class="col">
                         <label for="">Fasilitas</label>
-                        <select name="fasilitas[]" multiple data-live-search="true" class="form-control nice-select" data-control="select2" id="inpFasilitas">
+                        <select name="fasilitas[]" multiple data-live-search="true" class="form-control nice-select" data-control="select2" id="inpFas">
                             @foreach ($fasilitas as $fr)
                                 <option value="{{ $fr->nama_fasilitas }}">{{ $fr->nama_fasilitas }}</option>
                             @endforeach

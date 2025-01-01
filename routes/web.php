@@ -30,8 +30,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['guest'])->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('login');
     Route::get('index/login', [LoginController::class, 'login'])->name('index.login');
-    Route::get('index/daftar', [LoginController::class, 'daftar'])->name('index.daftar');
-
+    Route::get('index/daftar', [LoginController::class, 'register'])->name('index.daftar');
 });
 Route::get('/home', function(){
     return redirect('admin/dashboard');
@@ -46,6 +45,8 @@ Route::get('index/kontak', [IndexController::class, 'kontak'])->name('index.kont
 
 // Login Aksi
 Route::post('index/login/auth', [LoginController::class, 'auth'])->name('login.auth');
+// Register AKsi
+Route::post('index/daftar/proses', [LoginController::class, 'authRegister'])->name('proses.daftar');
 
 Route::middleware(['auth'])->group(function(){
     //admin
@@ -84,6 +85,17 @@ Route::middleware(['auth'])->group(function(){
     Route::post('admin/kelola/proses_tambah_fasilitas', [FasilitasController::class, 'store'])->name('add.fasilitas')->middleware('userAkses:1');
     //Delete Data Fasilitas
     Route::post('admin/kelola/delete/fasilitas{id}', [FasilitasController::class, 'destroy'])->name('delete_data_fasilitas')->middleware('userAkses:1');
+
+//CETAK DATA AKUN
+    //cetak sesuai role
+    Route::get('admin/kelola/cetak/akun', [AdminController::class, 'cetak'])->name('form.cetak')->middleware('userAkses:1');
+    Route::post('admin/kelola/cetak/akun/proses', [AdminController::class, 'cetakAkun'])->name('cetak.data')->middleware('userAkses:1');
+
+//CETAK DATA Properti
+    //cetak sesuai role
+    Route::get('admin/kelola/cetak/properti', [PropertiController::class, 'cetak'])->name('form.cetak.properti')->middleware('userAkses:1');
+    Route::post('admin/kelola/cetak/properti/proses', [PropertiController::class, 'cetakProperti'])->name('cetak.data.properti')->middleware('userAkses:1');
+
 
 //PAGE USER
     //user

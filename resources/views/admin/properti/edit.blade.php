@@ -37,7 +37,7 @@
                     </div>
                     <div class="col">
                         <label for="">Fasilitas</label>
-                        <select name="fasilitas[]" multiple data-live-search="true" class="form-control nice-select" data-control="select2" id="inpFasilitas">
+                        <select name="fasilitas[]" multiple data-live-search="true" class="form-control nice-select" data-control="select2" id="inpFas">
                             @foreach ($fasilitas as $fr)
                                 @if (old('nama_fasilitas', $properti->nama_fasilitas) == $fr->id_rumah)
                                     <option value="{{ $fr->nama_fasilitas }}">{{ $fr->nama_fasilitas }}</option>

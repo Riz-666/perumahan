@@ -72,7 +72,7 @@
                     <div class="col">
                         <label for="">Password</label>
                         <input type="password" name="password" class="form-control" placeholder="Masukan Password"
-                            value="{{ $edit->password }}">
+                            placeholder="{{ $edit->password }}">
                     </div>
                 </div>
                 <br>

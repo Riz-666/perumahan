@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('no_ktp', 20)->unique();
             $table->string('alamat', 255)->nullable();
             $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan'])->default('Laki-Laki');
-            $table->enum('role', [0,1,2])->default(0);
+            $table->enum('role', [0,1,2])->default(2);
             $table->string('password');
             $table->string('hp',13);
             $table->string('foto')->nullable();

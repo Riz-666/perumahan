@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Beranda</title>
@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <!-- fontawesome -->
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
+    {{-- sweetAlert --}}
+    <link rel="stylesheet" href="{{ asset('sweetalert2/dist/sweetalert2.all.min.css') }}">
 </head>
 
 <body>
@@ -39,6 +41,20 @@
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- fontawesome js -->
     <script src="{{ asset('fontawesome/js/all.min.js') }}"></script>
+    {{-- Select2 --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    {{-- sweetAlert --}}
+    <link rel="stylesheet" href="{{ asset('sweetalert2/dist/sweetalert2.all.min.css') }}">
+    @if(session('success'))
+    <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Registration Successful',
+                text: '{{ session('success') }}',
+                confirmButtonText: 'OK'
+            });
+    </script>
+    @endif
 </body>
 
 </html>

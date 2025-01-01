@@ -32,8 +32,8 @@
     <link rel="stylesheet" href="{{ asset('sweetalert2/dist/sweetalert2.all.min.css') }}">
     {{-- select2 --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('dist/select2-bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/select2-bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ asset('select2/dist/select2-bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('select2/dist/select2-bootstrap4.css') }}">
     {{-- CkEditor --}}
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css">
 </head>
@@ -212,14 +212,6 @@
         });
     </script>
     @endif
-    {{-- <script>
-        ClassicEditor
-            .create(document.querySelector('#ckeditor'))
-            .catch(error => {
-                console.error(error);
-            });
-     </script> --}}
-
     <script>
         CKEDITOR.replace('ckeditor', {
             allowedContent: true,

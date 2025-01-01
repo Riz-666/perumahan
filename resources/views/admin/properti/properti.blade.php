@@ -1,8 +1,8 @@
 @extends('admin.layout.layout')
 @section('content')
-        <a class="btn btn-primary btn-sm" href="{{ Route('tambah_rumah') }}"><i class="fa-solid fa-user-plus"></i> Tambah
-            Data</a>
-        <div class="table-responsive">
+        <a class="btn btn-primary btn-sm" href="{{ Route('tambah_rumah') }}"><i class="fa-solid fa-user-plus"></i> Tambah Data</a>
+        <a class="btn btn-dark btn-sm" href="{{ Route('form.cetak.properti') }}"><i class="fa-solid fa-print"></i> Cetak Data Pembeli</a>
+    <div class="table-responsive">
                 <table id="propertiTable" class="table table-bordered table-striped table-responsive" data-show-header="false" >
                     <thead>
                         <tr>

@@ -65,6 +65,10 @@ class PropertiController extends Controller
         $input = $request->all();
         $fasilitas = $input['fasilitas'];
         $properti->fasilitas = implode(' | ',$fasilitas );
+        
+        $data = $request->input('keterangan_rumah');
+        $data1 = preg_replace('/<\/?(p|u|em|strong)[^>]*>/', '', $data);
+        $properti->keterangan_rumah = $data1;
 
         $properti->status = $request->status;
         $properti->keterangan_rumah = $request->keterangan_rumah;
@@ -174,5 +178,37 @@ class PropertiController extends Controller
         }
         $properti->delete();
         return redirect()->route('properti_data')->with('success');
+    }
+
+    public function cetak(){
+        return view('admin.properti.formData',[
+            'judul' => 'Cetak Data Properti'
+        ]);
+    }
+    public function cetakProperti(Request $request)
+    {
+        // Menambahkan aturan validasi
+        $request->validate(
+            [
+                'tanggal_awal' => 'required|date',
+                'tanggal_akhir' => 'required|date|after_or_equal:tanggal_awal',
+            ],
+            [
+                'tanggal_awal.required' => 'Tanggal Awal harus diisi.',
+                'tanggal_akhir.required' => 'Tanggal Akhir harus diisi.',
+                'tanggal_akhir.after_or_equal' => 'Tanggal Akhir harus lebih besar atau sama dengan Tanggal Awal.',
+            ],
+        );
+        $tanggalAwal = $request->input('tanggal_awal');
+        $tanggalAkhir = $request->input('tanggal_akhir');
+        $query = Properti::whereBetween('created_at', [$tanggalAwal, $tanggalAkhir])
+        ->orderBy('id_rumah', 'desc');
+        $properti = $query->get();
+        return view('admin.properti.cetak', [
+            'judul' => 'Laporan Properti',
+            'tanggalAwal' => $tanggalAwal,
+            'tanggalAkhir' => $tanggalAkhir,
+            'cetak' => $properti,
+        ]);
     }
 }

@@ -19,7 +19,7 @@
                             voluptates neque? Officia unde temporibus totam facere rem, dolor deserunt
                             quidem ut.
                         </p>
-                        <button class="btn btn-lg">Temukan Rumah</button>
+                        <a href="{{ Route('index.properti') }}" class="btn btn-lg">Temukan Rumah</a>
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -13,7 +15,7 @@ class LoginController extends Controller
     public function auth(Request $request){
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
         ],[
             'email.required' => 'Email Wajib Di Isi',
             'password.required' => 'Password Wajib Di Isi'
@@ -35,37 +37,50 @@ class LoginController extends Controller
         }
 }
 public function register(){
-    return view('register');
+    return view('daftar',[
+        'judul' => 'Daftar'
+    ]);
 }
 public function authRegister(Request $request){
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required'
-    ],[
+    $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'email' => 'required|max:255|email|unique:user',
+            'no_ktp' => 'required|max:20',
+            'jenis_kelamin' => 'required',
+            'hp' => 'required|max:13',
+            'role' => 'required',
+            'alamat' => 'required',
+            'password' => 'required|min:4',
+            'foto' => 'required|image|mimes:jpeg,jpg,png,gif|file|max:2048',
+    ],$message = [
         'email.required' => 'Email Wajib Di Isi',
         'password.required' => 'Password Wajib Di Isi'
     ]);
+    $filePath = public_path('/storage/user-img');
 
-    $logininfo = [
-        'email' => $request->email,
-        'password' => $request->password
-    ];
-
-    if(Auth::attempt($logininfo)){
-        if(Auth::user()->role == 1){
-            return redirect()->route('admin.dashboard')->with('status', Auth::user()->nama);
-        }elseif (Auth::user()->role == 2) {
-            return redirect()->route('user.dashboard');
-        }
-    }else{
-        return redirect()->route('index.login')->withErrors('Data Yang Dimasukan Tidak Sesuai')->withInput();
+    if($request->hasFile('foto')){
+    $file = $request->file('foto');
+            $fileName = time() . $request->file('foto')->getClientOriginalName();
+            $file->move($filePath,$fileName);
     }
+    $user = User::create([
+        'nama' => $request->nama,
+        'email' => $request->email,
+        'no_ktp' => $request->no_ktp,
+        'jenis_kelamin' => $request->jenis_kelamin,
+        'hp' => $request->hp,
+        'alamat' => $request->alamat,
+        'password' => Hash::make($request->password),
+        'foto' => $fileName,
+        'role' => $request->role
+    ]);
+    session()->flash('success', 'Your account has been created successfully!');
+
+    return redirect()->route('index.login');
+
 }
     public function logout(){
         Auth::logout();
         return redirect()->route('index.login');
-    }
-    public function daftar(){
-        return view('daftar');
     }
 }

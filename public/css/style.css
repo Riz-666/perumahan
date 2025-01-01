@@ -297,3 +297,35 @@ img:hover {
 select .form-control {
     color: black;
 }
+
+.card-register{
+    margin-top: 90px;
+    margin-bottom: 90px;
+    width: 70%;
+    background-color: #133E87;
+    color: white;
+    border-radius: 0px;
+ }
+ .card-register .card-title{
+    margin-top: 40px;
+    margin-bottom: 50px;
+    text-align: center;
+ }
+ .card-register .form-control{
+    border-radius: 0px;
+ }
+.card-register .form-text,
+.card-register .form-label{
+    color: #ffffff;
+    text-align: left;
+}
+.card-register .btn{
+    margin-bottom: 70px;
+    text-align: center;
+    width: 100%;
+    border-radius: 0%;
+    background-color: green;
+}
+#exampleConfirmInputPassword{
+    margin-bottom: 50px;
+}

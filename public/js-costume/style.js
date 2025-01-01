@@ -10,7 +10,7 @@
 
 // Select2
     $(document).ready(function () {
-    $('#inpFasilitas').val('').select2({
+    $('#inpFas').val('').select2({
             placeholder: 'Tambah Fasilitas',
             theme:'bootstrap4',
             closeOnSelect: false
