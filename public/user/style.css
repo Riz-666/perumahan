@@ -10,13 +10,13 @@ body{
     color: #fff;
 }
 
-.d-flex .daftar{
-    background: #ffffff;
-    color: black;
+.navbar-expand-lg .user-name{
+    font-size: 20px;
+    margin-right: 10px;
 }
 
 .img-brand{
-    width: 50px;
+    width: 150px;
     height: 50px;
 }
 
@@ -25,6 +25,10 @@ body{
     background-color:#133E87;
     color:#ffffff;
   }
+
+.footer-basic .copyright{
+    margin-left: 30px;
+}
 
   .footer-basic ul {
     padding:0;
@@ -70,7 +74,7 @@ body{
 
   .header-content{
     background-color: #608BC1;
-    margin-top: 50px;
+    margin-top: 60px;
   }
   .row .img-box{
     background-image: url("https://png.pngtree.com/png-vector/20240204/ourmid/pngtree-3d-modern-house-isolated-png-image_11606152.png");
@@ -122,55 +126,42 @@ body{
     margin-bottom: 40px;
  }
 
- .home-reco .card{
-    text-align: center;
+ .home-reco .card-body{
+    text-align: left;
     margin-top: 30px;
     margin-bottom: 40px;
     border-radius: 0px;
-    width: 20rem;
-    height: 20rem;
-
  }
- .home-reco .card-title,
- .home-reco .card-text{
+
+ .home-reco img{
+    height: 200px;
+    width: 100%;
+ }
+ .home-reco img:hover{
+    border: 5px solid #fff;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter: none;
+    filter: none;
+ }
+
+ .home-reco .card-title{
+    margin-top: 20px;
     text-align: left;
+ }
+ .home-reco .card-body .card-text{
+  padding: 15px;
+  width: 100%;
+  height: 100px;
+  overflow: scroll;
+  border: 1px solid #ccc;
  }
  .home-reco .card-status{
     text-align: left;
     color: green;
     margin-top: 1px;
  }
- .card-login{
-    margin-top: 90px;
-    margin-bottom: 90px;
-    width: 30rem;
-    background-color: #133E87;
-    color: white;
-    border-radius: 0px;
- }
- .card-login .card-title{
-    margin-top: 40px;
-    margin-bottom: 50px;
-    text-align: center;
- }
- .card-login .form-control{
-    border-radius: 0px;
- }
-.card-login .form-text,
-.card-login .form-label{
-    color: #ffffff;
-    text-align: left;
-}
-.card-login .btn{
-    margin-bottom: 70px;
-    text-align: center;
-    width: 100%;
-    border-radius: 0%;
-    background-color: green;
-}
-#exampleConfirmInputPassword{
-    margin-bottom: 50px;
-}
 
 .select-properti {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://png.pngtree.com/thumb_back/fh260/back_pic/03/69/42/6857b4809a1f944.jpg");
@@ -181,7 +172,7 @@ body{
     position: relative;
     text-align: center;
     color: #ffffff;
-    margin-top: 65px;
+    margin-top: 80px;
  }
  .select-properti .detail-properti-select{
     margin-top: 20px;
@@ -193,19 +184,27 @@ body{
     margin-bottom: 20px;
  }
  .card-properti .img-properti{
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfVYpKQTeEfTyae84fucgjh2xHXOourhVFuQ&s");
     height: 100%;
     background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
+ }
+ .img-properti:hover{
+    border: 5px solid #fff;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter: none;
+    filter: none;
  }
  .card-properti .btn{
-    width: 50%;
+    width: 100%;
     background-color: #133E87;
     color: #ffffff;
     border-radius: 0px;
  }
  .card-gallery{
-    margin-top: 80px;
+    margin-top: 150px;
     margin-bottom: 40px;
     background-color: #ffffff;
  }
@@ -220,7 +219,7 @@ body{
     transition-duration: 1s;
 }
 
-img:hover {
+.img-gallery:hover {
     border: 5px solid #fff;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -235,6 +234,7 @@ img:hover {
 }
 
 .bg-kontak{
+    margin-top: 65px;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://png.pngtree.com/thumb_back/fh260/background/20230615/pngtree-residential-neighborhood-a-3d-rendering-featuring-houses-and-land-image_3604999.jpg');
     background-size: cover;
 }
@@ -275,91 +275,140 @@ img:hover {
     height: 80px;
     background-color: rgb(0, 209, 0);
 }
-
-
-/* Dropdown */
-.profile {
-    position: relative;
+.card-properti .tersedia{
+    color: green;
+}
+.card-properti .terjual{
+    color: red;
+}
+.card-properti .booked{
+    color: darkgoldenrod;
+}
+select .form-control {
+    color: black;
+}
+.navbar .avatar {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	margin-right: 10px;
+}
+.dropdown-menu{
     text-align: center;
 }
-
-.profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid red;
-    cursor: pointer;
+.dropdown-menu .email{
+    color: gray;
 }
+.dropdown-menu .logout-title{
+    color: red;
+ }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    transition:all 2s;
+/* Carousel Media */
+.carousel {
+    margin-top: 80px;
+    margin-bottom: 60px;
+	padding: 0 80px;
 }
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+.carousel .carousel-item {
+	text-align: center;
+	overflow: hidden;
+    width: 100%;
+    height: 500px;
 }
-
-.dropdown-content a:hover {
-    background-color: #ddd;
+.carousel .carousel-item h4 {
+	font-family: 'Varela Round', sans-serif;
 }
-
-.dropdown:hover .dropdown-content {
-    display: block;
+.carousel .carousel-item img {
+	width: 100%;
+    height: 150px;
+	display: inline-block;
 }
-
-.profile ul {
-    background-color: #fff;
-    width: 200px;
-    height: 190px;
-    border-radius: 10px;
-    right: 25px;
-    top: 7px;
-    position: absolute;
-    padding: 8px;
-    transition: all 0.5s;
-    z-index: 1;
+.carousel .carousel-item .btn {
+	border-radius: 0;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+	border: none;
+	background: blue;
+	padding: 6px 15px;
+	margin-top: 5px;
 }
-
-.profile ul::before {
-    content: '';
-    position: absolute;
-    background-color: #fff;
-    height: 10px;
-    width: 10px;
-    top: -5px;
-    transform: rotate(45deg);
+.carousel .carousel-item .btn:hover {
+	background: #8c5bff;
 }
-
-.profile ul li {
-    list-style: none;
-    text-align: left;
-    font-size: 15px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    transition: all 0.5s;
-    cursor: pointer;
-    border-radius: 4px;
+.carousel .carousel-item .btn i {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
 }
-
-.profile ul li:hover {
-    background-color: #eee;
+.carousel .thumb-wrapper {
+	margin: 5px;
+	text-align: left;
+	background: #fff;
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.1);
 }
-
-.profile ul li i {
-    margin-right: 7px;
+.carousel .thumb-content {
+	padding: 15px;
+	font-size: 13px;
 }
-.dropbtn{
-    background: transparent;
-    border: 0px;
-    color: #ffffff;
+.carousel .thumb-content .media-desk{
+  padding: 15px;
+  width: 100%;
+  height: 100px;
+  overflow: scroll;
+  border: 0px solid #ccc;
+}
+.carousel .thumb-content .title-foto{
+  padding: 15px;
+  width: 100%;
+  height: 100px;
+  overflow: scroll;
+  border: 0px solid #ccc;
+}
+.carousel-control-prev, .carousel-control-next {
+	height: 44px;
+	width: 44px;
+	background: none;
+	margin: auto 0;
+	border-radius: 50%;
+	border: 3px solid rgba(0, 0, 0, 0.8);
+}
+.carousel-control-prev i, .carousel-control-next i {
+	font-size: 36px;
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	margin: -19px 0 0 0;
+	z-index: 5;
+	left: 0;
+	right: 0;
+	color: rgba(0, 0, 0, 0.8);
+	text-shadow: none;
+	font-weight: bold;
+}
+.carousel-control-prev i {
+	margin-left: -3px;
+}
+.carousel-control-next i {
+	margin-right: -3px;
+}
+.carousel-indicators {
+	bottom: -50px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin: 4px;
+	border: none;
+}
+.carousel-indicators li {
+	background: #ababab;
+}
+.carousel-indicators li.active {
+	background: #555;
+}
+.swall-size{
+    width: 20%;
+    font-size: x-small;
 }

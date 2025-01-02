@@ -4,15 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PropertiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
-
-
-
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -32,25 +27,28 @@ Route::middleware(['guest'])->group(function () {
     Route::get('index/login', [LoginController::class, 'login'])->name('index.login');
     Route::get('index/daftar', [LoginController::class, 'register'])->name('index.daftar');
 });
+
 Route::get('/home', function(){
     return redirect('admin/dashboard');
 });
 
-Route::get('index/properti', [IndexController::class, 'properti'])->name('index.properti');
+Route::get('/properti', [IndexController::class, 'properti'])->name('index.properti');
 
-Route::get('index/media', [IndexController::class, 'media'])->name('index.media');
+Route::get('/media', [IndexController::class, 'media'])->name('index.media');
 
-Route::get('index/kontak', [IndexController::class, 'kontak'])->name('index.kontak');
+Route::get('/kontak', [IndexController::class, 'kontak'])->name('index.kontak');
 
+Route::get('/search-rumah', [IndexController::class, 'search'])->name('search.rumah');
 
-// Login Aksi
+// LOGIN
 Route::post('index/login/auth', [LoginController::class, 'auth'])->name('login.auth');
-// Register AKsi
+// REGISTER USER
 Route::post('index/daftar/proses', [LoginController::class, 'authRegister'])->name('proses.daftar');
 
 Route::middleware(['auth'])->group(function(){
-    //admin
-    Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('userAkses:1');
+
+//DASHBOARD ADMIN
+    Route::get('admin/dashboard', [AdminController::class, 'index'])->name('admin_dashboard')->middleware('userAkses:1');
 
 //KELOLA AKUN
     //Kelola Data admin
@@ -86,6 +84,15 @@ Route::middleware(['auth'])->group(function(){
     //Delete Data Fasilitas
     Route::post('admin/kelola/delete/fasilitas{id}', [FasilitasController::class, 'destroy'])->name('delete_data_fasilitas')->middleware('userAkses:1');
 
+//KELOLA MEDIA
+    //table Media
+    Route::get('admin/kelola/media',[MediaController::class, 'index'])->name('media_data')->middleware('userAkses:1');
+    //tambah Media
+    Route::get('admin/kelola/tambah_media', [MediaController::class, 'create'])->name('tambah_media')->middleware('userAkses:1');
+    Route::post('admin/kelola/proses_tambah_media', [MediaController::class, 'store'])->name('add.media')->middleware('userAkses:1');
+    //Hapus Media
+    Route::post('admin/kelola/delete/media{id}', [MediaController::class, 'destroy'])->name('delete_data_media')->middleware('userAkses:1');
+
 //CETAK DATA AKUN
     //cetak sesuai role
     Route::get('admin/kelola/cetak/akun', [AdminController::class, 'cetak'])->name('form.cetak')->middleware('userAkses:1');
@@ -99,11 +106,12 @@ Route::middleware(['auth'])->group(function(){
 
 //PAGE USER
     //user
-    Route::get('user/dashboard', [UserController::class, 'index'])->name('user.dashboard')->middleware('userAkses:2');
-    Route::get('user/properti', [UserController::class, 'properti'])->name('user.index.properti')->middleware('userAkses:2');
-    Route::get('user/media', [UserController::class, 'media'])->name('user.index.media')->middleware('userAkses:2');
-    Route::get('user/kontak', [UserController::class, 'kontak'])->name('user.index.kontak')->middleware('userAkses:2');
-    //logout
+    Route::get('user/index/dashboard', [UserController::class, 'index'])->name('user_Dashboard')->middleware('userAkses:2');
+    Route::get('user/index/Properti', [UserController::class, 'properti'])->name('user_Properti')->middleware('userAkses:2');
+    Route::get('user/index/gallery', [UserController::class, 'media'])->name('user_galleri')->middleware('userAkses:2');
+    Route::get('user/index/Kontak', [UserController::class, 'kontak'])->name('user_Kontak')->middleware('userAkses:2');
+
+//LOGOUT
     Route::get('page/logout', [LoginController::class, 'logout'])->name('page.logout');
 
 });

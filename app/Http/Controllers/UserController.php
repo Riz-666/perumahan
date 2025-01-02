@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
+use App\Models\Properti;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,16 +14,26 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::get()->all();
+        $rumah = Properti::where('id_rumah', '>=', 1)
+        ->where('status', '=' ,'Tersedia')
+        ->orderBy('harga', 'asc')
+        ->get();
         return view('user.index',[
-            'user' => $user
+            'rumah' => $rumah,
+
         ]);
     }
     public function properti(){
-        return view('user.properti');
+        $properti = Properti::where('status','Tersedia')
+        ->orderBy('luas_bangunan', 'asc')
+        ->get();
+        return view('user.properti',compact('properti'));
     }
     public function media(){
-        return view('user.media');
+        $media = Media::where('id_foto', '>=',1)->get();
+        return view('user.media',[
+            'media' => $media
+        ]);
     }
     public function kontak(){
         return view('user.kontak');

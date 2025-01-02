@@ -38,3 +38,9 @@ height: 39px;
 .card-fasilitas{
     width: 50%;
 }
+
+.dropdown-header .avatar{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}

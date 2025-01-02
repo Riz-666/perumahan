@@ -47,7 +47,7 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ Route('admin.dashboard') }}">
+                    <a class="nav-link" href="{{ Route('admin_dashboard') }}">
                         <i class="mdi mdi-grid-large menu-icon"></i>
                         <span class="menu-title">Dashboard</span>
                     </a>
@@ -89,30 +89,15 @@
                     <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
                         aria-controls="tables">
                         <i class="menu-icon mdi mdi-table"></i>
-                        <span class="menu-title">Tables</span>
+                        <span class="menu-title">Gallery</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="tables">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic
-                                    table</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ Route('media_data') }}">Foto Gallery</a></li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false"
-                        aria-controls="icons">
-                        <i class="menu-icon mdi mdi-layers-outline"></i>
-                        <span class="menu-title">Icons</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="icons">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                        </ul>
-                    </div>
-                </li>
-
             </ul>
         </nav>
         <!-- partial -->
@@ -205,7 +190,7 @@
     <script>
         Swal.fire({
             title: 'Selamat Datang',
-            text: '{{ session('status') }}-san',
+            text: '{{ session('status') }}-San',
             imageUrl: 'https://i.pinimg.com/736x/9e/22/90/9e2290c9dce085c2f9b1f1dd013f0732.jpg',
             imageWidth: 400,
             imageHeight: 400,

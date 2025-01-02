@@ -13,10 +13,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ Route('index.properti') }}">PROPERTI</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="{{ Route('index.media') }}">
-                        MEDIA
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ Route('index.media') }}">MEDIA</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ Route('index.kontak') }}">KONTAK</a>

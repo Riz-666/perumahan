@@ -8,13 +8,15 @@
     <title>Beranda</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <!-- fontawesome -->
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
+
     {{-- sweetAlert --}}
     <link rel="stylesheet" href="{{ asset('sweetalert2/dist/sweetalert2.all.min.css') }}">
 </head>
@@ -29,31 +31,30 @@
     @include('layout.footer')
 
     <!-- bootstrap js -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-    </script>
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
     <!-- fontawesome js -->
     <script src="{{ asset('fontawesome/js/all.min.js') }}"></script>
-    {{-- Select2 --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    {{-- JS costume --}}
+    <script src="{{ asset('js-costume/style.js') }}"></script>
+
     {{-- sweetAlert --}}
-    <link rel="stylesheet" href="{{ asset('sweetalert2/dist/sweetalert2.all.min.css') }}">
-    @if(session('success'))
-    <script>
+    <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+
+    @if (session('status'))
+        <script>
             Swal.fire({
-                icon: 'success',
-                title: 'Registration Successful',
-                text: '{{ session('success') }}',
-                confirmButtonText: 'OK'
+                position: "top-end",
+                icon: "success",
+                title: "Selamat",
+                text: '{{ session('status') }}',
+                showConfirmButton: false,
+                timer: 1500,
+                customClass:'swall-size'
             });
-    </script>
+        </script>
     @endif
 </body>
 

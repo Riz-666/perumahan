@@ -28,9 +28,9 @@ class LoginController extends Controller
 
         if(Auth::attempt($logininfo)){
             if(Auth::user()->role == 1){
-                return redirect()->route('admin.dashboard')->with('status', Auth::user()->nama);
+                return redirect()->route('admin_dashboard')->with('status', Auth::user()->nama);
             }elseif (Auth::user()->role == 2) {
-                return redirect()->route('user.dashboard');
+                return redirect()->route('user_Dashboard')->with('status', Auth::user()->nama);
             }
         }else{
             return redirect()->route('index.login')->withErrors('Data Yang Dimasukan Tidak Sesuai')->withInput();
@@ -74,9 +74,8 @@ public function authRegister(Request $request){
         'foto' => $fileName,
         'role' => $request->role
     ]);
-    session()->flash('success', 'Your account has been created successfully!');
 
-    return redirect()->route('index.login');
+    return redirect()->route('index.login')->with('status','Akun Berhasil Di Buat');
 
 }
     public function logout(){

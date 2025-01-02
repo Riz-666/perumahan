@@ -1,5 +1,4 @@
 @extends('user.layout.layout')
-
 @section('content')
 
 <body class="bg-kontak">

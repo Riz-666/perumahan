@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 @section('content')
-        <a class="btn btn-primary btn-sm" href="{{ Route('tambah_fasilitas') }}"><i class="fa-solid fa-user-plus"></i> Tambah
+        <a class="btn btn-primary btn-sm" href="{{ Route('tambah_fasilitas') }}"><i class="fa-solid fa-folder-plus"></i> Tambah
             Data</a>
         <div class="table-responsive">
             <table id="fasilitasTable" class="table table-striped table-bordered">

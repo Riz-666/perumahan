@@ -105,6 +105,7 @@ body{
     margin-top: 30px;
     border-radius: 50px;
     margin-bottom: 40px;
+    box-shadow: 4px 5px #888888;
   }
 
  .select-home {
@@ -133,6 +134,14 @@ body{
     height: 200px;
     width: 100%;
  }
+ .home-reco img:hover{
+    border: 5px solid #fff;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-filter: none;
+    filter: none;
+ }
 
  .home-reco .card-title{
     margin-top: 20px;
@@ -157,6 +166,7 @@ body{
     background-color: #133E87;
     color: white;
     border-radius: 0px;
+    box-shadow: 5px 10px #888888;
  }
  .card-login .card-title{
     margin-top: 40px;
@@ -201,6 +211,8 @@ body{
     width: 80rem;
     margin-top: 10px;
     margin-bottom: 20px;
+    box-shadow: 4px 5px #888888;
+    border-radius: 10px;
  }
  .card-properti .img-properti{
     height: 100%;
@@ -208,41 +220,20 @@ body{
     background-repeat: no-repeat;
     width: 100%;
  }
- .card-properti .btn{
-    width: 100%;
-    background-color: #133E87;
-    color: #ffffff;
-    border-radius: 0px;
- }
- .card-gallery{
-    margin-top: 80px;
-    margin-bottom: 40px;
-    background-color: #ffffff;
- }
- .card-gallery .card-header{
-    color:#133E87;
- }
- .card-gallery .img-gallery {
-    width: 450px;
-    height: 300px;
-    margin: 10px;
-    border: 10px solid #133E87;
-    transition-duration: 1s;
-}
-
-img:hover {
+ .img-properti:hover{
     border: 5px solid #fff;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
     transform: scale(1.1);
     -webkit-filter: none;
     filter: none;
-}
-.card-gallery .card-body{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://png.pngtree.com/thumb_back/fh260/background/20230615/pngtree-residential-neighborhood-a-3d-rendering-featuring-houses-and-land-image_3604999.jpg');
-    background-size: cover;
-    position: relative;
-}
+ }
+ .card-properti .btn{
+    width: 100%;
+    background-color: #133E87;
+    color: #ffffff;
+    border-radius: 0px;
+ }
 
 .bg-kontak{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://png.pngtree.com/thumb_back/fh260/background/20230615/pngtree-residential-neighborhood-a-3d-rendering-featuring-houses-and-land-image_3604999.jpg');
@@ -250,6 +241,7 @@ img:hover {
 }
 .bg-kontak .card-kontak{
     border-radius: 0%;
+    box-shadow: 4px 5px #888888;
 }
 .card-kontak .title-kontak{
     text-align: center;
@@ -305,6 +297,7 @@ select .form-control {
     background-color: #133E87;
     color: white;
     border-radius: 0px;
+    box-shadow: 5px 10px #888888;
  }
  .card-register .card-title{
     margin-top: 40px;
@@ -328,4 +321,166 @@ select .form-control {
 }
 #exampleConfirmInputPassword{
     margin-bottom: 50px;
+}
+
+/* Carousel Media */
+.carousel {
+    margin-top: 80px;
+    margin-bottom: 60px;
+	padding: 0 80px;
+}
+.carousel .carousel-item {
+	text-align: center;
+	overflow: hidden;
+    width: 100%;
+    height: 500px;
+}
+.carousel .carousel-item h4 {
+	font-family: 'Varela Round', sans-serif;
+}
+.carousel .carousel-item img {
+	width: 100%;
+    height: 150px;
+	display: inline-block;
+}
+.carousel .carousel-item .btn {
+	border-radius: 0;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+	border: none;
+	background: blue;
+	padding: 6px 15px;
+	margin-top: 5px;
+}
+.carousel .carousel-item .btn:hover {
+	background: #8c5bff;
+}
+.carousel .carousel-item .btn i {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.carousel .thumb-wrapper {
+	margin: 5px;
+	text-align: left;
+	background: #fff;
+	box-shadow: 5px 5px 2px rgba(0,0,0,0.1);
+}
+.carousel .thumb-content {
+	padding: 15px;
+	font-size: 13px;
+}
+.carousel .thumb-content .media-desk{
+  padding: 15px;
+  width: 100%;
+  height: 100px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+}
+.carousel .thumb-content .title-foto{
+  padding: 15px;
+  width: 100%;
+  height: 100px;
+  overflow: scroll;
+  border: 0px solid #ccc;
+}
+.carousel-control-prev, .carousel-control-next {
+	height: 44px;
+	width: 44px;
+	background: none;
+	margin: auto 0;
+	border-radius: 50%;
+	border: 3px solid rgba(0, 0, 0, 0.8);
+}
+.carousel-control-prev i, .carousel-control-next i {
+	font-size: 36px;
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	margin: -19px 0 0 0;
+	z-index: 5;
+	left: 0;
+	right: 0;
+	color: rgba(0, 0, 0, 0.8);
+	text-shadow: none;
+	font-weight: bold;
+}
+.carousel-control-prev i {
+	margin-left: -3px;
+}
+.carousel-control-next i {
+	margin-right: -3px;
+}
+.carousel-indicators {
+	bottom: -50px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin: 4px;
+	border: none;
+}
+.carousel-indicators li {
+	background: #000000;
+}
+.carousel-indicators li.active {
+	background: #000000;
+}
+.search-box {
+    background: rgba(212, 212, 212, 0.822);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-box select, .search-box input {
+    width: 100%;
+    border: none;
+    background: rgba(255, 255, 255, 0);
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #1d005f;
+}
+.search-box button {
+    background: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.search-box button:hover {
+    background: #1d005f;
+}
+
+.card-properti-search{
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+.card-properti-search .Harga{
+    color: green;
+}
+.card-properti-search .btn{
+    width: 100%;
+    background-color: #133E87;
+    color: #ffffff;
+    border-radius: 0px;
+ }
+ .card-properti-search .img-properti{
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+ }
+ .card-properti-search .tersedia{
+    color: green;
+}
+.null-search{
+    margin-bottom: 20px;
+    margin-top: 80px;
+    width: 50%;
 }

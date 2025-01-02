@@ -66,12 +66,12 @@ class PropertiController extends Controller
         $fasilitas = $input['fasilitas'];
         $properti->fasilitas = implode(' | ',$fasilitas );
         
+        $properti->status = $request->status;
+
         $data = $request->input('keterangan_rumah');
         $data1 = preg_replace('/<\/?(p|u|em|strong)[^>]*>/', '', $data);
         $properti->keterangan_rumah = $data1;
 
-        $properti->status = $request->status;
-        $properti->keterangan_rumah = $request->keterangan_rumah;
 
         if($request->hasFile('foto')){
             $file = $request->file('foto');
