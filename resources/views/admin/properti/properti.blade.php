@@ -22,11 +22,6 @@
                     <tbody>
                         @foreach ($properti as $rumah)
                             <tr>
-                                {{-- <td>
-                                    <ul class="list-group">
-                                        <li class="list-group-item">{{ $loop->iteration }}</li>
-                                    </ul>
-                                </td> --}}
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="kolom"><p>{{ $rumah->nomor_rumah }}</p></td>
                                 <td class="kolom"><p>{{ $rumah->tipe_rumah }}</p></td>

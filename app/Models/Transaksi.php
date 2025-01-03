@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,12 +12,17 @@ class Transaksi extends Model
     protected $primaryKey = 'id_transaksi';
 
     protected $fillable = [
-        'id_rumah',
         'id_user',
+        'id_rumah',
+        'nama',
+        'hp',
+        'tipe_rumah',
+        'pembayaran',
+        'status',
+        'harga',
+        'jumlah',
+        'total_pembayaran',
         'tanggal_transaksi',
-        'harga_jual',
-        'metode_pembayaran',
-        'keterangan',
     ];
 
     public function properti()

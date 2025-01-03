@@ -428,6 +428,8 @@ select .form-control {
 .carousel-indicators li.active {
 	background: #000000;
 }
+
+/* SEARCH */
 .search-box {
     background: rgba(212, 212, 212, 0.822);
     padding: 20px;

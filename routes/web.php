@@ -5,9 +5,11 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\PropertiController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +112,13 @@ Route::middleware(['auth'])->group(function(){
     Route::get('user/index/Properti', [UserController::class, 'properti'])->name('user_Properti')->middleware('userAkses:2');
     Route::get('user/index/gallery', [UserController::class, 'media'])->name('user_galleri')->middleware('userAkses:2');
     Route::get('user/index/Kontak', [UserController::class, 'kontak'])->name('user_Kontak')->middleware('userAkses:2');
+
+//FORM PEMESANAN
+    Route::get('user/pesan/properti{id}', [PemesananController::class, 'index'])->name('form_pemesanan')->middleware('userAkses:2');
+    Route::post('user/pesan/properti/proses',[PemesananController::class, 'store'])->name('proses_pemesanan')->middleware('userAkses:2');
+
+//RIWAYAT TRANSAKSI
+    Route::get('user/riwayat/', [UserController::class, 'riwayat'])->name('riwayat.user');
 
 //LOGOUT
     Route::get('page/logout', [LoginController::class, 'logout'])->name('page.logout');

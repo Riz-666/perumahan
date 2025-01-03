@@ -53,10 +53,9 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item edit-title" href="#"><i class="fa fa-pen"></i> Edit
-                                    Profile</a></li>
-                            <li><a class="dropdown-item logout-title" href="{{ Route('page.logout') }}"><i
-                                        class="fa fa-power-off"></i><span> Logout</span></a></li>
+                            <li><a class="dropdown-item edit-title" href="#"><i class="fa fa-pen-to-square"></i> Edit Profile</a></li>
+                            <li><a class="dropdown-item edit-title" href="{{ Route('riwayat.user') }}"><i class="fa fa-scroll"></i> Riwayat Transaksi</a></li>
+                            <li><a class="dropdown-item logout-title" href="{{ Route('page.logout') }}"><i class="fa fa-power-off"></i><span> Logout</span></a></li>
                         </ul>
                     </li>
                 </div>

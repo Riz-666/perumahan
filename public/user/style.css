@@ -172,14 +172,14 @@ body{
     position: relative;
     text-align: center;
     color: #ffffff;
-    margin-top: 80px;
+    margin-top: 60px;
  }
  .select-properti .detail-properti-select{
     margin-top: 20px;
     margin-bottom: 40px;
  }
  .card-properti{
-    width: 80rem;
+    width: auto;
     margin-top: 10px;
     margin-bottom: 20px;
  }
@@ -411,4 +411,108 @@ select .form-control {
 .swall-size{
     width: 20%;
     font-size: x-small;
+}
+
+
+/* SEARCH */
+.search-box {
+    background: rgba(212, 212, 212, 0.822);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-box select, .search-box input {
+    width: 100%;
+    border: none;
+    background: rgba(255, 255, 255, 0);
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #1d005f;
+}
+.search-box button {
+    background: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.search-box button:hover {
+    background: #1d005f;
+}
+
+.card-properti-search{
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+.card-properti-search .Harga{
+    color: green;
+}
+.card-properti-search .btn{
+    width: 100%;
+    background-color: #133E87;
+    color: #ffffff;
+    border-radius: 0px;
+ }
+ .card-properti-search .img-properti{
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+ }
+ .card-properti-search .tersedia{
+    color: green;
+}
+.null-search{
+    margin-bottom: 20px;
+    margin-top: 80px;
+    width: 50%;
+}
+.card-pemesanan{
+    margin-top: 80px;
+    margin-bottom: 30px;
+    border-radius: 0%;
+    width: 130%;
+}
+
+.card-pemesanan .form-control{
+    border-radius: 0%;
+}
+.card-pemesanan .img-properti{
+   height: 100%;
+   background-size: cover;
+   background-repeat: no-repeat;
+   width: 100%;
+}
+.img-properti:hover{
+   border: 5px solid #fff;
+   -webkit-transform: scale(1.1);
+   -ms-transform: scale(1.1);
+   transform: scale(1.1);
+   -webkit-filter: none;
+   filter: none;
+}
+.card-pemesanan .btn{
+   width: 100%;
+   background-color: #133E87;
+   color: #ffffff;
+   border-radius: 0px;
+}
+.card-pemesanan .card-title{
+    font-size: 20px;
+    text-align: center;
+}
+.table-trx{
+    margin-top: 90px;
+    margin-bottom: 20px;
+    border: 1px;
+}
+.table-trx .card-title{
+    margin-top: 10px;
+}
+.table-responsive .table_trx{
+    text-align: center;
 }

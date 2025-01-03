@@ -23,4 +23,9 @@ class Properti extends Model
         'foto',
         'status',
     ];
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaksi::class, 'id_rumah');
+    }
 }

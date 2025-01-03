@@ -11,13 +11,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('user/style.css') }}">
+
     <!-- fontawesome -->
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
 
     {{-- sweetAlert --}}
     <link rel="stylesheet" href="{{ asset('sweetalert2/dist/sweetalert2.all.min.css') }}">
+
+    <!-- DataTables -->
+    <link href="{{ asset('DataTables/datatables.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -36,10 +41,13 @@
     <script src="{{ asset('fontawesome/js/all.min.js') }}"></script>
 
     {{-- JS costume --}}
-    <script src="{{ asset('user/js-costume/style.js') }}"></script>
+    <script src="{{ asset('user/style.js') }}"></script>
 
     {{-- sweetAlert --}}
     <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+
+    <!-- dataTables -->
+    <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
 
     @if (session('status'))
         <script>
@@ -54,6 +62,17 @@
             });
         </script>
     @endif
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil !!!',
+                text: '{{ session('success') }}'
+            });
+        </script>
+    @endif
+
 </body>
 
 </html>
