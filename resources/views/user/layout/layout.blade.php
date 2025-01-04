@@ -73,6 +73,33 @@
         </script>
     @endif
 
+    @if (session('pilih'))
+    <script>
+            Swal.fire({
+                title: 'Berhasil !!!',
+                text: '{{ session('pilih') }}',
+                text: 'Ingin Langsung Cetak Data transaksi?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Lanjutkan',
+                cancelButtonText: 'Tidak',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Jika tombol "Ya" diklik, redirect ke halaman lain
+                    window.location.href = '{{ route('cetak_data_riwayat',session('pilih')) }}'; // Ganti URL sesuai kebutuhan
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    // Jika tombol "Tidak" diklik, SweetAlert akan ditutup
+                    Swal.fire(
+                        'Dibatalkan',
+                        'Tindakan Anda telah dibatalkan.',
+                        'info'
+                    );
+                }
+            });
+    </script>
+    @endif
 </body>
 
 </html>

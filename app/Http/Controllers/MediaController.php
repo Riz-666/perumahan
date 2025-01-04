@@ -66,7 +66,7 @@ class MediaController extends Controller
         }
 
         $media->save($validatedData, $messages);
-        return redirect()->route('index.media')->with('success','Data Berhasil di tambahkan');
+        return redirect()->route('media_data')->with('success','Data Berhasil di tambahkan');
     }
 
     /**
@@ -74,9 +74,12 @@ class MediaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $show = Media::findOrFail($id);
+        return view('admin.media.show',[
+            'show' => $show,
+            'judul' => 'Detail Media'
+        ]);
     }
-
     /**
      * Show the form for editing the specified resource.
      */

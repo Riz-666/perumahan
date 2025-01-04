@@ -82,7 +82,7 @@
                         <p></p>
                     @else
                         <img src="{{ asset('storage/properti-img/img-default.jpg') }}" class="foto-preview" width="50%">
-                    @endif
+                    @endif 
                     </div>
                 </div>
                 <br>

@@ -1,6 +1,7 @@
 @extends('layout.layout')
 @section('content')
 <div class="container-xl">
+    <div class="card">
 	<div class="row">
 		<div class="col-md-10 mx-auto">
 			<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">

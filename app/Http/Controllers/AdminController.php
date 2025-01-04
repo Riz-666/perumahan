@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaksi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -43,9 +44,6 @@ class AdminController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -91,9 +89,15 @@ class AdminController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
+    public function riwayatUser(){
+        $trx = Transaksi::orderBy('tanggal_transaksi','desc')
+        ->get();
+        return view('admin.data_transaksi.transaksi_user',[
+            'judul' => 'Riwayat Pemesanan',
+            'trx' => $trx
+        ]);
+    }
+
     public function show(string $id)
     {
         //

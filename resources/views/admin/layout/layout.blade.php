@@ -98,6 +98,18 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+                      <i class="menu-icon mdi mdi-script-text"></i>
+                      <span class="menu-title">Data Transaksi</span>
+                      <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="icons">
+                      <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" href="{{ Route('transaksi_data') }}">User</a></li>
+                      </ul>
+                    </div>
+                  </li>
             </ul>
         </nav>
         <!-- partial -->
@@ -143,14 +155,17 @@
     <!-- dataTables -->
     <script src="{{ asset('DataTables/datatables.min.js') }}"></script>
     <!-- Costume-js -->
-    <script src="{{ asset('js-costume/style.js') }}"></script>
+    <script src="{{ asset('admin/js-costume/style.js') }}"></script>
     {{-- sweetAlert --}}
     <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     {{-- Select2 --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <!-- CKEditor -->
     <script src="https://cdn.ckeditor.com/4.4.1/standard/ckeditor.js"></script>
-
+    {{-- Axios --}}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    {{-- JQuery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @if (session('success'))
         <script>
             Swal.fire({

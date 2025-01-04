@@ -52,20 +52,6 @@ class PemesananController extends Controller
         'tanggal_transaksi' => 'required|date',
     ]);
 
-    // Simpan data transaksi
-    // Transaksi::create([
-    //     'id_user' => $validatedData['id_user'],
-    //     'id_rumah' => $validatedData['id_rumah'],
-    //     'nama' => $validatedData['nama'],
-    //     'hp' => $validatedData['hp'],
-    //     'tipe_rumah' => $validatedData['tipe_rumah'],
-    //     'pembayaran' => $validatedData['pembayaran'],
-    //     'status' => 'pending',
-    //     'harga' => $validatedData['harga'],
-    //     'jumlah' => $validatedData['jumlah'],
-    //     'total_pembayaran' => $validatedData['total_pembayaran'],
-    //     'tanggal_transaksi' => now(),
-    // ]);
 
         $transaksi = new Transaksi();
         $transaksi->id_user = $request->id_user;
@@ -82,7 +68,7 @@ class PemesananController extends Controller
 
         $transaksi->save($validatedData);
 
-        return redirect()->route('user_Properti',['id_rumah' => $validatedData['id_rumah']])->with('success', 'Pemesanan berhasil dibuat.');
+        return redirect()->route('user_Properti',['id_rumah' => $validatedData['id_rumah']])->with('pilih', $transaksi->id);
 }
 
 
@@ -115,6 +101,43 @@ class PemesananController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $trx = Transaksi::findOrFail($id);
+        $trx->delete();
+        return redirect()->route('riwayat.user')->with('success','Riwayat Berhasil Di Hapus');
+    }
+
+    public function cetakTransaksi(){
+
+        return view('admin.data_transaksi.formCetak', [
+            'judul' => 'Cetak Data Transaksi User'
+        ]);
+    }
+    public function prosesCetakTransaksi(Request $request)
+    {
+        // Menambahkan aturan validasi
+        $request->validate(
+            [
+                'tanggal_awal' => 'required|date',
+                'tanggal_akhir' => 'required|date|after_or_equal:tanggal_awal'
+            ],
+            [
+                'tanggal_awal.required' => 'Tanggal Awal harus diisi.',
+                'tanggal_akhir.required' => 'Tanggal Akhir harus diisi.',
+                'tanggal_akhir.after_or_equal' => 'Tanggal Akhir harus lebih besar atau sama dengan Tanggal Awal.',
+            ],
+        );
+        $tanggalAwal = $request->input('tanggal_awal');
+        $tanggalAkhir = $request->input('tanggal_akhir');
+        $query = Transaksi::with('user')
+        ->whereBetween('created_at', [$tanggalAwal, $tanggalAkhir])
+        ->orderBy('tanggal_transaksi', 'desc');
+
+        $riwayat = $query->get();
+        return view('admin.data_transaksi.cetak', [
+            'judul' => 'Laporan Akun Pembeli',
+            'tanggalAwal' => $tanggalAwal,
+            'tanggalAkhir' => $tanggalAkhir,
+            'riwayat' => $riwayat,
+        ]);
     }
 }

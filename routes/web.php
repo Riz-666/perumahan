@@ -92,15 +92,25 @@ Route::middleware(['auth'])->group(function(){
     //tambah Media
     Route::get('admin/kelola/tambah_media', [MediaController::class, 'create'])->name('tambah_media')->middleware('userAkses:1');
     Route::post('admin/kelola/proses_tambah_media', [MediaController::class, 'store'])->name('add.media')->middleware('userAkses:1');
+    //Show Media
+    Route::get('admin/kelola/media{id}', [MediaController::class, 'show'])->name('show_media')->middleware('userAkses:1');
     //Hapus Media
     Route::post('admin/kelola/delete/media{id}', [MediaController::class, 'destroy'])->name('delete_data_media')->middleware('userAkses:1');
+
+//KELOLA DATA TRANSAKSI USER
+    //table Media
+    Route::get('admin/kelola/dataTransaksi',[AdminController::class, 'riwayatUser'])->name('transaksi_data')->middleware('userAkses:1');
+
+//CETAK DATA TRANSAKSI
+    Route::get('admin/kelola/cetak/transaksi', [PemesananController::class, 'cetakTransaksi'])->name('form.cetak.transaksi')->middleware('userAkses:1');
+    Route::post('admin/kelola/cetak/transaksi/proses', [PemesananController::class, 'prosesCetakTransaksi'])->name('cetak.data.transaksi')->middleware('userAkses:1');
 
 //CETAK DATA AKUN
     //cetak sesuai role
     Route::get('admin/kelola/cetak/akun', [AdminController::class, 'cetak'])->name('form.cetak')->middleware('userAkses:1');
     Route::post('admin/kelola/cetak/akun/proses', [AdminController::class, 'cetakAkun'])->name('cetak.data')->middleware('userAkses:1');
 
-//CETAK DATA Properti
+//CETAK DATA PROPERTI
     //cetak sesuai role
     Route::get('admin/kelola/cetak/properti', [PropertiController::class, 'cetak'])->name('form.cetak.properti')->middleware('userAkses:1');
     Route::post('admin/kelola/cetak/properti/proses', [PropertiController::class, 'cetakProperti'])->name('cetak.data.properti')->middleware('userAkses:1');
@@ -113,12 +123,22 @@ Route::middleware(['auth'])->group(function(){
     Route::get('user/index/gallery', [UserController::class, 'media'])->name('user_galleri')->middleware('userAkses:2');
     Route::get('user/index/Kontak', [UserController::class, 'kontak'])->name('user_Kontak')->middleware('userAkses:2');
 
+//SEARCH RUMAH USER
+    Route::get('user/index/search-rumah', [UserController::class, 'search'])->name('user.search.rumah');
+
 //FORM PEMESANAN
     Route::get('user/pesan/properti{id}', [PemesananController::class, 'index'])->name('form_pemesanan')->middleware('userAkses:2');
     Route::post('user/pesan/properti/proses',[PemesananController::class, 'store'])->name('proses_pemesanan')->middleware('userAkses:2');
 
 //RIWAYAT TRANSAKSI
-    Route::get('user/riwayat/', [UserController::class, 'riwayat'])->name('riwayat.user');
+    //show
+    Route::get('user/riwayat/', [UserController::class, 'riwayat'])->name('riwayat.user')->middleware('userAkses:2');
+    //Hapus transaksi
+    Route::post('user/delete/riwayat{id}', [PemesananController::class, 'destroy'])->name('delete_data_transaksi')->middleware('userAkses:2');
+
+//CETAK DATA RIWAYAT PEMESANAN
+    //cetak sesuai id
+    Route::get('user/riwayat/cetak/{id}', [UserController::class, 'cetakRiwayat'])->name('cetak_data_riwayat')->middleware('userAkses:2');
 
 //LOGOUT
     Route::get('page/logout', [LoginController::class, 'logout'])->name('page.logout');

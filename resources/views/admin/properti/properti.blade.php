@@ -1,9 +1,10 @@
 @extends('admin.layout.layout')
 @section('content')
+<div class="container-fluid">
         <a class="btn btn-primary btn-sm" href="{{ Route('tambah_rumah') }}"><i class="fa-solid fa-folder-plus"></i> Tambah Data</a>
         <a class="btn btn-dark btn-sm" href="{{ Route('form.cetak.properti') }}"><i class="fa-solid fa-print"></i> Cetak Data Pembeli</a>
     <div class="table-responsive">
-                <table id="propertiTable" class="table table-bordered table-striped table-responsive" data-show-header="false" >
+                <table id="myTable" class="table table-bordered table-striped table-responsive" data-show-header="false" >
                     <thead>
                         <tr>
                             <th>No</th>
@@ -61,4 +62,5 @@
                     </tbody>
                 </table>
             </div>
+        </div>
         @endsection

@@ -42,11 +42,6 @@
     <tbody>
         @foreach ($cetak as $rumah)
             <tr>
-                {{-- <td>
-                    <ul class="list-group">
-                        <li class="list-group-item">{{ $loop->iteration }}</li>
-                    </ul>
-                </td> --}}
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $rumah->nomor_rumah }}</td>
                 <td>{{ $rumah->tipe_rumah }}</td>

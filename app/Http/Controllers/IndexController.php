@@ -62,7 +62,7 @@ class IndexController extends Controller
         }
 
         if ($cari) {
-            $query->where('keterangan', 'like', '%' . $keterangan . '%')
+            $query->where('keterangan_rumah', 'like', '%' . $cari . '%')
             ->where('status','Tersedia');
         }
 

@@ -1,16 +1,15 @@
-@extends('user.layout.layout')
+@extends('admin.layout.layout')
 @section('content')
     <div class="container-fluid">
         <div class="card table-trx">
-            <div class="card-title text-center">
-                <h4>{{ $judul }}</h4>
-                <hr>
-            </div>
             <div class="card-body">
-                <a class="btn btn-primary btn-md" href="{{ Route('user_Properti') }}"><i class="fa-solid fa-folder-plus"></i>
-                    Lakukan Transaksi Lain?</a>
+                <div class="card-title text-center">
+                    <h4>{{ $judul }}</h4>
+                    <hr>
+                </div>
+                <a class="btn btn-dark btn-sm" href="{{ Route('form.cetak.transaksi') }}"><i class="fa-solid fa-print"></i> Cetak Data Pembeli</a>
                 <div class="table-responsive">
-                    <table id="historyTrx" class="table table_trx table-striped table-bordered" data-show-header="false">
+                    <table id="myTable" class="table table_trx table-striped table-bordered" data-show-header="false">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -44,8 +43,6 @@
                                     <td>{{ $trx->total_pembayaran }}</td>
                                     <td>{{ $trx->tanggal_transaksi }}</td>
                                     <td>
-                                        <a href="{{ Route('cetak_data_riwayat', $trx->id) }}" class="btn btn-primary btn-sm" target="_blank"><i class="fa fa-print"></i><a>
-
                                         <form action="{{ Route('delete_data_transaksi', $trx->id) }}" method="POST">
                                             @csrf
 

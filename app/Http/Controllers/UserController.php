@@ -41,7 +41,9 @@ class UserController extends Controller
         return view('user.pembeli_kontak');
     }
     public function riwayat(){
-        $trx = Transaksi::where('id_user', Auth::user()->id)->get();
+        $trx = Transaksi::where('id_user', Auth::user()->id)
+        ->orderBy('tanggal_transaksi','desc')
+        ->get();
         return view('user.riwayat_transaksi',[
             'judul' => 'Riwayat Pemesanan',
             'trx' => $trx
@@ -129,7 +131,7 @@ class UserController extends Controller
         }
 
         if ($cari) {
-            $query->where('keterangan', 'like', '%' . $keterangan . '%')
+            $query->where('keterangan_rumah', 'like', '%' . $cari . '%')
             ->where('status','Tersedia')
             ->orderBy('harga', 'asc');
         }
@@ -137,5 +139,13 @@ class UserController extends Controller
         $rumah = $query->get();
 
         return view('user.pembeli_cari_properti', compact('rumah'));
+    }
+    public function cetakRiwayat($id){
+
+        $riwayat = Transaksi::findOrFail($id);
+        return view('user.pemesanan.pembeli_cetak', [
+            'judul' => 'Formulir Pemesanan',
+            'riwayat' => $riwayat
+        ]);
     }
 }

@@ -44,3 +44,32 @@ height: 39px;
     width: 80px;
     height: 80px;
 }
+
+.card-media-show {
+    width: 50%;
+}
+.card-media-show .btn-back{
+    width: 100%;
+}
+.table-trx .card-title{
+    margin-top: 10px;
+}
+.table-responsive .table_trx{
+    text-align: center;
+    position: sticky;
+    top: 0;
+    white-space: normal;
+    width: 100%;
+}
+
+.table-media{
+    position: sticky;
+    top: 0;
+    white-space: normal;
+    width: 100%;
+}
+.table-media .scroll p, .table .scroll span {
+    display: block;
+    overflow-x: auto;
+    max-width: 360px;
+}

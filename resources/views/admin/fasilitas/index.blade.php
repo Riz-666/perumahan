@@ -3,7 +3,7 @@
         <a class="btn btn-primary btn-sm" href="{{ Route('tambah_fasilitas') }}"><i class="fa-solid fa-folder-plus"></i> Tambah
             Data</a>
         <div class="table-responsive">
-            <table id="fasilitasTable" class="table table-striped table-bordered">
+            <table id="myTable" class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>

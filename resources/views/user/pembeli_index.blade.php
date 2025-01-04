@@ -89,7 +89,7 @@
                 <p class="container">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates eaque iste, dolorum labore ducimus voluptatibus asperiores saepe magni, iure qui omnis sequi aliquid rem eos placeat optio unde magnam dicta?</p>
                 <div class="container mt-5">
                     <div class="search-box">
-                        <form action="{{ Route('search.rumah') }}" method="GET" class="row w-100">
+                        <form action="{{ Route('user.search.rumah') }}" method="GET" class="row w-100">
                             <div class="col-lg-3 col-md-6 mb-2 mb-lg-0">
 
                                 <select name="tipe_rumah" class="form-control">
