@@ -6,7 +6,9 @@
             <div class="container">
                 <div class="card card-register">
                     <div class="card-body">
-                        <div class="card-title">{{ $judul }}</div>
+                        <div class="card-title">
+                            <h5>{{ $judul }}</h5>
+                        </div>
                         <br>
                         <div class="row">
                             <div class="col">
@@ -86,7 +88,7 @@
                         <br>
                         <div class="row text-center">
                             <div class="col">
-                                <button type="submit" class="btn btn-sm btn-tambah btn-primary">Tambahkan</button>
+                                <button type="submit" class="btn btn-tambah btn-primary">Tambahkan</button>
                             </div>
                         </div>
 

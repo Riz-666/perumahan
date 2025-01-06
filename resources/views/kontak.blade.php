@@ -15,7 +15,10 @@
             <br>
             <br>
             <h5>Social Media</h5>
-            <p><i class="fa-brands fa-facebook"></i> <i class="fa-brands fa-twitter"></i> <i class="fa-brands fa-instagram"></i> @devangga.rizki</p>
+            <a href="#" style="color: white"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" style="color: white"> <i class="fa-brands fa-twitter"></i></a>
+            <a href="#" style="color: white"> <i class="fa-brands fa-instagram"></i></a>
+            @devangga.rizki
         </div>
         <div class="col-sm grid-card-kontak">
             <div class="card card-kontak">

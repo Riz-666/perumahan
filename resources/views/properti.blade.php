@@ -91,7 +91,7 @@
                         </b></p>
 
                         <br>
-                        <a href="" class="btn">Pesan Sekarang<b> &rarr;</b></a>
+                        <a href="{{ Route('index.daftar') }}" class="btn">Pesan Sekarang<b> &rarr;</b></a>
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -49,7 +49,7 @@
     <div class="card-body">
       <h5 class="card-title">Ups!!!</h5>
       <p class="card-text">Tidak Ada Rumah dengan Kriteria tersebut.</p>
-      <a href="/" class="btn btn-danger">Kembali ?</a>
+      <a href="{{ Route('user_Dashboard') }}" class="btn btn-danger">Kembali ?</a>
     </div>
   </div>
 </center>
