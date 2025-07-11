@@ -1,67 +1,87 @@
 <style>
-    table {
-        border-collapse: collapse;
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .struk-container {
         width: 100%;
-        border: 1px solid #ccc;
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #333;
     }
 
-    table tr td {
-        padding: 6px;
-        font-weight: normal;
-        border: 1px solid #ccc;
+    .judul {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-transform: uppercase;
     }
 
-    table th {
-        border: 1px solid #ccc;
+    .info {
+        margin-bottom: 15px;
+    }
+
+    .info p {
+        margin: 4px 0;
+    }
+
+    .detail-item {
+        margin-bottom: 10px;
+    }
+
+    .label {
+        display: inline-block;
+        width: 160px;
+        font-weight: bold;
+    }
+
+    .footer {
+        margin-top: 20px;
+        text-align: right;
+        font-size: 13px;
+    }
+
+    @media print {
+        .no-print {
+            display: none;
+        }
+
+        body {
+            margin: 0;
+        }
     }
 </style>
-<table>
-    <tr>
-        <td align="left">
-            Perihal : {{ $judul }} <br>
-            Tanggal Awal: {{ $riwayat->tanggal_transaksi }}
-        </td>
-    </tr>
-</table>
-<p></p>
-<table>
-    <thead>
-        <tr>
-            <th>ID User</th>
-            <th>ID Rumah</th>
-            <th>Nama</th>
-            <th>No. Telepon</th>
-            <th>Tipe Rumah</th>
-            <th>Metode Pembayaran</th>
-            <th>Status</th>
-            <th>Harga/Unit</th>
-            <th>Jumlah Pesan</th>
-            <th>Total Pembayaran</th>
-            <th>Tangga Transaksi</th>
-        </tr>
-    </thead>
 
-    <tbody>
-        <td>{{ $riwayat->id_user }}</td>
-        <td>{{ $riwayat->id_rumah }}</td>
-        <td>{{ $riwayat->nama }}</td>
-        <td>{{ $riwayat->hp }}</td>
-        <td>{{ $riwayat->tipe_rumah }}</td>
-        <td>{{ $riwayat->pembayaran }}</td>
-        <td>{{ $riwayat->status }}</td>
-        <td>{{ $riwayat->harga }}</td>
-        <td>{{ $riwayat->jumlah }}</td>
-        <td>{{ $riwayat->total_pembayaran }}</td>
-        <td>{{ $riwayat->tanggal_transaksi }}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="struk-container">
+    <div class="judul">Struk Pembelian</div>
+
+    <div class="info">
+        <p><strong>Perihal:</strong> {{ $judul }}</p>
+        <p><strong>Tanggal Transaksi:</strong> {{ date('d-m-Y', strtotime($riwayat->tanggal_transaksi)) }}</p>
+    </div>
+
+    <div class="detail-item"><span class="label">ID User :</span> {{ $riwayat->user->nama }}</div>
+    <div class="detail-item"><span class="label">Nomor Rumah :</span> {{ $riwayat->properti->nomor_rumah }}</div>
+    <div class="detail-item"><span class="label">Nama Pemesan :</span> {{ $riwayat->nama }}</div>
+    <div class="detail-item"><span class="label">No. Telepon :</span> {{ $riwayat->hp }}</div>
+    <div class="detail-item"><span class="label">Tipe Rumah :</span> {{ $riwayat->tipe_rumah }}</div>
+    <div class="detail-item"><span class="label">Metode Pembayaran :</span> {{ ucfirst($riwayat->pembayaran) }}</div>
+    <div class="detail-item"><span class="label">Status:</span> {{ ucfirst($riwayat->status) }}</div>
+    <div class="detail-item"><span class="label">Harga per Unit :</span> Rp {{ number_format($riwayat->harga, 0, ',', '.') }}</div>
+    <div class="detail-item"><span class="label">Jumlah Pesan :</span> {{ $riwayat->jumlah }}</div>
+    <div class="detail-item"><span class="label">Total Pembayaran :</span> Rp {{ number_format($riwayat->total_pembayaran, 0, ',', '.') }}</div>
+
+    <div class="footer">
+        Dicetak pada: {{ date('d-m-Y H:i') }}
+    </div>
+</div>
+
 <script>
-    window.onload = function() {
-        printStruk();
-    }
-
-    function printStruk() {
+    window.onload = function () {
         window.print();
-    }
+    };
 </script>

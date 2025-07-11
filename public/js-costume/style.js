@@ -7,6 +7,7 @@
     }]
     });
     });
+
     $(document).ready( function () {
     $('#historyTrx').DataTable({
     responsive:true,

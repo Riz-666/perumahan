@@ -14,8 +14,12 @@ return new class extends Migration {
             $table->id(); // ID unik untuk setiap transaksi
             $table->unsignedBigInteger('id_user'); // ID pembeli, relasi ke tabel users
             $table->unsignedBigInteger('id_rumah'); // ID properti, relasi ke tabel properties
+            $table->string('nama');
+            $table->string('tipe_rumah');
             $table->string('pembayaran'); // Metode pembayaran (e.g., 'cash', 'loan', 'credit_card')
             $table->enum('status', ['pending', 'completed', 'canceled', 'failed']); // Status pembayaran
+            $table->decimal('harga', 15,2);
+            $table->bigInteger('jumlah');
             $table->decimal('total_pembayaran', 15, 2); // Total pembayaran
             $table->timestamp('tanggal_transaksi')->useCurrent(); // Tanggal transaksi
             $table->text('catatan')->nullable(); // Catatan tambahan

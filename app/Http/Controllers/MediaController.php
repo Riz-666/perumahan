@@ -45,11 +45,6 @@ class MediaController extends Controller
 
 
         $filePath = public_path('/storage/media-img');
-        // $user = Media::create([
-        //     'title' => $request->title,
-        //     'keterangan_foto' => $request->keterangan_foto,
-        //     'foto' => $fileName,
-        // ]);
         $media = new Media();
         $media->title = $request->title;
 

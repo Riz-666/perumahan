@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Properti;
 use App\Models\Transaksi;
 use App\Models\User;
@@ -95,7 +94,7 @@ class PemesananController extends Controller
     {
         //
     }
-
+ 
     /**
      * Remove the specified resource from storage.
      */

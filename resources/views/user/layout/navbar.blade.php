@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ Route('user_Dashboard') }}">BERANDA</a>
+                    <a class="nav-link" aria-current="page" href="/user/index/dashboard">BERANDA</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ Route('user_Properti') }}">PROPERTI</a>

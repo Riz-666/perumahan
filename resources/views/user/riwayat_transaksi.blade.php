@@ -12,7 +12,7 @@
                 <div class="table-responsive">
                     <table id="historyTrx" class="table table_trx table-striped table-bordered" data-show-header="false">
                         <thead>
-                            <tr>
+                            <tr> 
                                 <th>No</th>
                                 <th>ID User</th>
                                 <th>ID Rumah</th>

@@ -228,4 +228,5 @@ class AdminController extends Controller
             'cetak' => $user,
         ]);
     }
+    
 }

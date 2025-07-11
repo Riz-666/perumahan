@@ -14,6 +14,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('user/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('mahasiswa/style.css') }}">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}">
@@ -42,6 +43,7 @@
 
     {{-- JS costume --}}
     <script src="{{ asset('user/style.js') }}"></script>
+    <script src="{{ asset('mahasiswa/style.js') }}"></script>
 
     {{-- sweetAlert --}}
     <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js') }}"></script>

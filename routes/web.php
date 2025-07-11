@@ -122,7 +122,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('user/index/Properti', [UserController::class, 'properti'])->name('user_Properti')->middleware('userAkses:2');
     Route::get('user/index/gallery', [UserController::class, 'media'])->name('user_galleri')->middleware('userAkses:2');
     Route::get('user/index/Kontak', [UserController::class, 'kontak'])->name('user_Kontak')->middleware('userAkses:2');
-
+ 
 //SEARCH RUMAH USER
     Route::get('user/index/search-rumah', [UserController::class, 'search'])->name('user.search.rumah');
 

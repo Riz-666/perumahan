@@ -142,7 +142,8 @@ class UserController extends Controller
     }
     public function cetakRiwayat($id){
 
-        $riwayat = Transaksi::findOrFail($id);
+        $riwayat = Transaksi::with(['user','properti'])
+                            ->findOrFail($id);
         return view('user.pemesanan.pembeli_cetak', [
             'judul' => 'Formulir Pemesanan',
             'riwayat' => $riwayat

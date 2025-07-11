@@ -204,9 +204,9 @@ body{
     border-radius: 0px;
  }
  .card-gallery{
-    margin-top: 150px;
+    margin-top: 190px;
     margin-bottom: 40px;
-    background-color: #ffffff;
+    background-color: #0056b3;
  }
  .card-gallery .card-header{
     color:#133E87;
@@ -354,7 +354,7 @@ select .form-control {
 .carousel .thumb-content .media-desk{
   padding: 15px;
   width: 100%;
-  height: 100px;
+  height: 150px;
   overflow: scroll;
   border: 0px solid #ccc;
 }
